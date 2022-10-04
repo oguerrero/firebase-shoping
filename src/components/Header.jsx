@@ -23,7 +23,7 @@ const Header = () => {
   }
 
   return (
-    <header className='fixed top-0 flex items-center justify-between w-full h-20 px-2 bg-transparent shadow-lg md:px-8'>
+    <header className='fixed top-0 z-50 flex items-center justify-between w-full h-20 px-2 bg-gray-100 shadow-lg md:px-8'>
       <div
         className='flex items-center gap-2 cursor-pointer'
         onClick={() => setRoute('home')}>

@@ -35,7 +35,7 @@ const Register = () => {
 
   return (
     <div className='flex flex-col items-center gap-4'>
-      <h1 className='text-xl font-semibold text-center text-sky-600'>
+      <h1 className='text-xl font-semibold text-center text-yellow-600'>
         Register to start shopping
       </h1>
       <form onSubmit={handleSubmit} className='flex flex-col max-w-sm gap-2'>

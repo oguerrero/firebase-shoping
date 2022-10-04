@@ -8,6 +8,7 @@ import Home from './Routes/Home'
 import Login from './Routes/Login'
 import Register from './Routes/Register'
 import Shop from './Routes/Shop'
+import TaskList from './Routes/TaskList'
 
 export const AppContext = createContext(null)
 
@@ -32,11 +33,12 @@ function App() {
       <div className='w-screen h-screen'>
         <Toaster />
         <Header />
-        <main className='px-6 pt-24 pb-20'>
+        <main className='px-6 pt-24 pb-20 relative'>
           {route === 'home' && <Home />}
           {route === 'login' && <Login />}
           {route === 'register' && <Register />}
           {route === 'shop' && <Shop />}
+          {route === 'list' && <TaskList />}
           {user && <p>Usuario: {user.uid}</p>}
         </main>
         <Footer />

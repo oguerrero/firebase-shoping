@@ -1,5 +1,6 @@
 // Import the functions you need from the SDKs you need
 import { initializeApp } from 'firebase/app'
+import { getFirestore } from 'firebase/firestore'
 import { getMessaging, getToken } from 'firebase/messaging'
 // TODO: Add SDKs for Firebase products that you want to use
 // https://firebase.google.com/docs/web/setup#available-libraries
@@ -45,9 +46,12 @@ getToken(messaging, { vapidKey })
     // ...
   })
 
+// Send token to Server
 const sendToken = (token) => {
-  console.log(token)
   if (localStorage.getItem('fcm-token')) return
   // TODO: Server side save client fcm-token
   localStorage.setItem('fcm-token', '1')
 }
+
+// Initialize Cloud Firestore and get a reference to the service
+export const db = getFirestore(app)

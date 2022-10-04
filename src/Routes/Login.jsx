@@ -1,5 +1,10 @@
 import React, { useContext, useState } from 'react'
-import { getAuth, signInWithPopup, GoogleAuthProvider, signInWithEmailAndPassword } from 'firebase/auth'
+import {
+  getAuth,
+  signInWithPopup,
+  GoogleAuthProvider,
+  signInWithEmailAndPassword
+} from 'firebase/auth'
 import { FcGoogle } from 'react-icons/fc'
 import { AppContext } from '../App'
 import toast from 'react-hot-toast'
@@ -55,7 +60,7 @@ const Login = () => {
 
   return (
     <div className='flex flex-col items-center'>
-      <h1 className='text-xl font-semibold text-sky-700'>Login Page</h1>
+      <h1 className='text-xl font-semibold text-yellow-700'>Login Page</h1>
       <p>Sign in to get access to your account</p>
       <div className='flex flex-col gap-4 py-4'>
         <button
