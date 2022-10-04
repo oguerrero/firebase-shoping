@@ -80,7 +80,7 @@ const Login = () => {
             placeholder='contraseña'
             onChange={(e) => setPassword(e.target.value)}
           />
-          <button className='px-4 py-2 font-semibold text-white transition rounded-full bg-sky-500 hover:bg-sky-600'>
+          <button className='px-4 py-2 font-semibold text-white transition rounded-full bg-sky-400 hover:bg-cyan-700'>
             Login
           </button>
         </form>

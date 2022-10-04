@@ -23,13 +23,14 @@ const vapidKey =
 
 // Get registration token. Initially this makes a network call, once retrieved
 // subsequent calls to getToken will return from cache.
-const messaging = getMessaging()
+export const messaging = getMessaging()
 getToken(messaging, { vapidKey })
   .then((currentToken) => {
     if (currentToken) {
       // Send the token to your server and update the UI if necessary
       // ...
-      console.log(currentToken)
+      // console.log(currentToken)
+      sendToken(currentToken)
       // e52eOHNq7LDmCidzVFHIzv:APA91bGAoUDE26lug3m27MM3ywNUDtT57lDS2RVMpXiCmw6pJ0CL1McHNXobnyO0wh02TQ8a2QwyN6wJMm2k69_uecR_4dsPkuojgRUKCkM9aoBxII8eQ9pv_f4eIGqOlnGAs49T4giI
     } else {
       // Show permission request UI
@@ -43,3 +44,10 @@ getToken(messaging, { vapidKey })
     console.log('An error occurred while retrieving token. ', err)
     // ...
   })
+
+const sendToken = (token) => {
+  console.log(token)
+  if (localStorage.getItem('fcm-token')) return
+  // TODO: Server side save client fcm-token
+  localStorage.setItem('fcm-token', '1')
+}

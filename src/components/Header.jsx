@@ -1,12 +1,12 @@
 import React, { useContext } from 'react'
-import { getAuth, signOut } from "firebase/auth";
+import { getAuth, signOut } from 'firebase/auth'
 import { SiFirebase } from 'react-icons/si'
 import { AppContext } from '../App'
-import toast from 'react-hot-toast';
+import toast from 'react-hot-toast'
 
 const Header = () => {
   const { setRoute, user, setUser } = useContext(AppContext)
-  const auth = getAuth();
+  const auth = getAuth()
 
   const logout = () => {
     signOut(auth)
@@ -23,35 +23,35 @@ const Header = () => {
   }
 
   return (
-    <header className='flex items-center justify-between w-full h-20 px-8 bg-gray-100 shadow-lg'>
+    <header className='fixed top-0 flex items-center justify-between w-full h-20 px-2 bg-transparent shadow-lg md:px-8'>
       <div
         className='flex items-center gap-2 cursor-pointer'
-        onClick={() =>  setRoute('home')}>
+        onClick={() => setRoute('home')}>
         <SiFirebase className='text-2xl text-yellow-500' />
         <span className='text-xl font-semibold text-yellow-500'>FireShop</span>
       </div>
-      {user ? (
-        <div className='flex gap-2'>
+      <div className='flex gap-4'>
+        {user ? (
           <button
-            className='px-4 py-1 font-semibold bg-rose-600 text-white transition rounded-full hover:bg-rose-700'
+            className='px-4 py-1 font-semibold text-white transition rounded-full bg-rose-600 hover:bg-rose-700'
             onClick={logout}>
             Logout
           </button>
-        </div>
-      ) : (
-        <div className='flex gap-2'>
-          <button
-            className='px-4 py-1 font-semibold text-white transition rounded-full bg-sky-500 hover:bg-sky-700'
-            onClick={() => setRoute('login')}>
-            Login
-          </button>
-          <button
-            className='px-4 py-1 font-semibold text-white transition bg-orange-500 rounded-full hover:bg-orange-600'
-            onClick={() => setRoute('register')}>
-            Sign Up
-          </button>
-        </div>
-      )}
+        ) : (
+          <>
+            <button
+              className='px-4 py-1 font-semibold text-white transition bg-yellow-500 rounded-full shadow-lg hover:bg-orange-500'
+              onClick={() => setRoute('register')}>
+              Sign Up
+            </button>
+            <button
+              className='px-4 py-1 font-semibold text-white transition rounded-full shadow-lg bg-sky-400 hover:bg-cyan-700'
+              onClick={() => setRoute('login')}>
+              Login
+            </button>
+          </>
+        )}
+      </div>
     </header>
   )
 }
