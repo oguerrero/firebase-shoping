@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from 'react'
-import { async } from 'rxjs'
+import toast from 'react-hot-toast'
 import {
   addTaskController,
   deleteTaskController,
@@ -22,6 +22,11 @@ const TaskList = () => {
     await addTaskController(task)
     setTask({ title: '', description: '' })
     getTasks()
+    toast.custom((t) => (
+      <div className='px-8 py-4 bg-indigo-700 rounded-full shadow-lg'>
+        <h1 className='text-lg  font-semibold text-white'>Task Added</h1>
+      </div>
+    ))
   }
 
   const editTask = (id) => {
@@ -34,11 +39,21 @@ const TaskList = () => {
     await updateTaskController(task)
     getTasks()
     setMode('add')
+    toast.custom((t) => (
+      <div className='px-8 py-4 bg-yellow-500 rounded-full shadow-lg'>
+        <h1 className='text-lg font-semibold text-white'>Task Edited</h1>
+      </div>
+    ))
   }
 
   const deleteTask = async (id) => {
     await deleteTaskController(id)
     getTasks()
+    toast.custom((t) => (
+      <div className='px-8 py-4 bg-rose-700 rounded-full shadow-lg'>
+        <h1 className='text-lg font-semibold text-white'>Task Deleted</h1>
+      </div>
+    ))
   }
 
   useEffect(() => {
