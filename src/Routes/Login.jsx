@@ -23,6 +23,7 @@ const Login = () => {
         // This gives you a Google Access Token. You can use it to access the Google API.
         const credential = GoogleAuthProvider.credentialFromResult(result)
         const token = credential.accessToken
+        console.log(token);
         // The signed-in user info.
         const user = result.user
         // ...
@@ -39,6 +40,7 @@ const Login = () => {
         // The AuthCredential type that was used.
         const credential = GoogleAuthProvider.credentialFromError(error)
         // ...
+        console.log(errorCode, errorMessage, email, credential)
       })
   }
   const emailLogin = (e) => {
@@ -55,6 +57,7 @@ const Login = () => {
       .catch((error) => {
         const errorCode = error.code
         const errorMessage = error.message
+        console.log(`Codigo de error: ${errorCode}, ${errorMessage}`)
       })
   }
 

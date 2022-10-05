@@ -24,6 +24,7 @@ const Register = () => {
       .catch((error) => {
         const errorCode = error.code
         const errorMessage = error.message
+        console.log(`Codigo de error: ${errorCode}, ${errorMessage}`)
         // ..
       })
   }
